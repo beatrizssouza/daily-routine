@@ -1,10 +1,18 @@
 import react from "react";
-import { Route, BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import LoginCrud from "../../views/login/components/LoginCrud";
 import Login from "../../views/login/Login";
 export default function Routes() {
   return (
-    <BrowserRouter>
-      <Route component={Login} path={["/", "/login"]} exact />
-    </BrowserRouter>
+    <Router>
+      <Switch>
+        <Route path={["/", "/login"]} exact>
+          <Login />
+        </Route>
+        <Route path={"/cadastro"}>
+          <LoginCrud />
+        </Route>
+      </Switch>
+    </Router>
   );
 }

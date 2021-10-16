@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useHistory } from "react-router";
 import {
   LoginBox,
   Logo,
@@ -8,12 +9,14 @@ import {
   PasswordGrid,
   ButtonDiv,
   Button,
+  LinkPassword,
 } from "./LoginCardBase";
 import LogoIcon from "../../../common/images/daily-routines-and-habits.png";
 
 export default function LoginCard() {
   const [userName, setUserName] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const history = useHistory();
   return (
     <div>
       <LoginBox>
@@ -42,6 +45,13 @@ export default function LoginCard() {
           <ButtonDiv>
             <Button>Entrar</Button>
           </ButtonDiv>
+          <LinkPassword
+            onClick={() => {
+              history.push("/cadastro");
+            }}
+          >
+            Cadastre-Se
+          </LinkPassword>
         </Form>
       </LoginBox>
     </div>
